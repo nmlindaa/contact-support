@@ -1,8 +1,16 @@
 <h1>Hello!</h1>
 <% if user_signed_in? %> 
 	<div> Welcome <%= current_user.name %> </div> 
-
-	<%= link_to "Edit Profile", edit_user_registration_path %>
+  <div>
+    <p>
+      <strong>Profile Data</strong><br/>
+      Role: <%= @profile&.role %><br/>
+      Phone: <%= @profile&.phone %><br/>
+      Availability: <%= @profile&.availability %><br/>
+    </p>
+    <%= link_to "Edit Profile", edit_profile_path(@profile.id) %>
+  </div>
+	<%= link_to "Edit Account", edit_user_registration_path %>
 
   <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
 <% else %>
