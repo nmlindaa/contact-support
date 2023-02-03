@@ -1,0 +1,20 @@
+<%= form_for(@profile, url: url, html: { method: method }) do |f| %>
+  <div class="field">
+    <%= f.label :role %><br />
+    <%= f.text_field :role, autofocus: true, autocomplete: "role" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :availability %><br />
+    <%= f.text_field :availability, autofocus: true, autocomplete: "availability" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
