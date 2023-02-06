@@ -5,7 +5,7 @@
     <div>
       <strong>Profile List</strong><br/>
 
-      <%= link_to "Create new profile", new_profile_path(current_user.id) %>
+      <%= link_to "Create new profile", new_profile_path(current_user.id), class: 'btn' %>
 
       <div>
         <% @profiles.each do |profile| %>
