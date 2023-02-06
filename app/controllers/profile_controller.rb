@@ -1,8 +1,8 @@
 class ProfileController < ApplicationController
-  before_action :get_profile, except: [:new, :create]
+  before_action :get_profile, except: [:new, :create, :index]
 
   def index
-    @profiles = Profile.where(user_id: params[:id]).to_a
+    @profiles = Profile.where(user_id: params[:format]).to_a
 	end
 
   def new
@@ -49,6 +49,7 @@ class ProfileController < ApplicationController
     params
       .require(:profile)
       .permit(
+        :name,
         :role,
         :phone,
         :availability

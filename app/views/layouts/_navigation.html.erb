@@ -1,15 +1,36 @@
-<nav>
-  <h1>Contact Support</h1>
-
-  <div>
-    <% if user_signed_in? %> 
-      <%= link_to "Edit Account", edit_user_registration_path %>
-
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %> 
-    <% else %>
-      <%= link_to "Sign in", new_user_session_path %>
-
-      <%= link_to "Sign up", new_user_registration_path %> 
-    <% end %>
+<div class="navbar-bg"></div>
+<nav class="navbar navbar-expand-lg main-navbar">
+  <div class="navbar-custom">
+    <%= link_to "Hi, #{current_user.name}", edit_user_registration_path, class: 'nav-link-custom' %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link-custom btn btn-light' %>
+  </div>
+  <div class="main-sidebar"> 
+    <!-- sidebar wrapper -->
+    <aside id="sidebar-wrapper">
+      <!-- sidebar brand -->
+      <div class="sidebar-brand">
+        <a href="/">Contact Support</a>
+      </div>
+      <!-- sidebar menu -->
+      <ul class="sidebar-menu">
+        <!-- menu header -->
+        <li class="menu-header">Dashboard</li>
+        <!-- menu item -->
+        <li>
+          <a href="/"><i class="fas fa-house"></i><span>Dashboard</span></a>
+        </li>
+        <li class="menu-header">Profile</li>
+        <li>
+          <%= link_to new_profile_path(current_user.id) do %>
+            <i class="fas fa-user-plus"></i><span>Create New</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to profile_index_path(current_user.id) do %>
+            <i class="fas fa-users"></i><span>Index</span>
+          <% end %>
+        </li>
+      </ul>
+    </aside>
   </div>
 </nav>

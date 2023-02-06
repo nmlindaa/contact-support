@@ -1,6 +1,7 @@
-<h2>Edit Profile</h2>
-<h3><%= current_user.name %></h3>
-<p><% notice || alert %></p>
-<%= render 'form', url: profile_path(@profile.id), method: :put %>
-
-<%= link_to "Back to Home", root_path %>
+<section class="section">
+  <div class="section-header">
+    <h1>Edit Profile</h1>
+  </div>
+  <p><% notice || alert %></p>
+  <%= render 'form', url: profile_path(@profile.id), method: :put %>
+</section>

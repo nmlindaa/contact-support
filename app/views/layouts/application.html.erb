@@ -14,11 +14,28 @@
   </head>
 
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div id="app">
+      <div class="main-wrapper main-wrapper-1">
+        <% if current_user.present? %>
+          <%= render 'layouts/navigation' %>
+          <div class="main-content">
+            <%= yield %>
+          </div>
+        <% else %>
+          <section class="section">
+            <div class="wrapper">
+              <div class="login-brand">
+                <h1>Contact Support</h1>
+              </div>
+
+              <%= yield %>
+            </div>
+          </section>
+        <% end %>
+        <footer class="simple-footer">
+          Copyright © 2023 <div class="bullet"></div> Contact Support
+        </footer>
+      </div>
+    </div>
   </body>
 </html>

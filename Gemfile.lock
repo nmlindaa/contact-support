@@ -101,6 +101,8 @@ GEM
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
+    font-awesome-sass (6.2.1)
+      sassc (~> 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -210,6 +212,7 @@ GEM
       mini_portile2 (~> 2.8.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stisla-rails (0.2.0)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.1)
@@ -251,6 +254,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  font-awesome-sass (~> 6.2.1)
   importmap-rails
   jbuilder
   jquery-rails
@@ -261,6 +265,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  stisla-rails
   turbo-rails (~> 1.0.0)
   tzinfo-data
   web-console

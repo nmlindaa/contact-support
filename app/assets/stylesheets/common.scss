@@ -1,8 +1,42 @@
-a {
-  color: rgba(0, 0, 0, 0.418);
-  text-decoration: none;
-}
 body {
   color: black;
   font-family: 'Roboto', sans-serif;
+  .main-sidebar .sidebar-menu li a,
+  .main-content,
+  .footer {
+    width: auto;
+  }
+  a {
+    text-decoration: none;
+  }
+  .card-wrapper {
+    display: flex;
+    flex-basis: 25%;
+    column-gap: 1rem;
+  }
+  .btn-primary,
+  .badge-success {
+    color: #fff;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .navbar-custom {
+    padding-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .nav-link-custom {
+      color: #fff;
+      font-weight: 600;
+      margin: 0 8px;
+    }
+  }
+  .btn {
+    border-radius: 0.25rem;
+  }
+  .wrapper {
+    width: 500px;
+    margin: auto;
+  }
 }

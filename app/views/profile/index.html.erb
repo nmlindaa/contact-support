@@ -1,0 +1,44 @@
+<section class="section">
+  <div class="section-header">
+    <h1>Profile List</h1>
+  </div>
+  <div class="section-content">
+    <div class="card">
+      <div class="card-body">
+        <div class="table-responsive">
+        <table class="table table-striped mb-0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Phone</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @profiles.each do |profile| %>
+              <tr>
+                <td><%= profile.name %></td>
+                <td><%= profile.role %></td>
+                <td><%= profile.phone %></td>
+                <td>
+                  <div class="badge badge-<%= profile.availability == 'online' ? 'success' : 'danger' %>"><%= profile.availability %></div>
+                </td>
+                <td>
+                <%= link_to edit_profile_path(profile.id), class: 'btn btn-primary btn-action mr-1' do %>
+                  <i class="fas fa-pencil-alt"></i>
+                <% end %>
+                <%= link_to profile_path(profile.id), method: :delete, data: { confirm: 'Are you sure want to remove this profile?' }, class: 'btn btn-danger' do %>
+                  <i class="fas fa-trash"></i>
+                <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

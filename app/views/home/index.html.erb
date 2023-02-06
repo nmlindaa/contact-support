@@ -1,33 +1,20 @@
-<h1>Hello!</h1>
-<% if user_signed_in? %> 
-	<div> Welcome <%= current_user.name %> </div> 
-  <div>
-    <div>
-      <strong>Profile List</strong><br/>
-
-      <%= link_to "Create new profile", new_profile_path(current_user.id), class: 'btn' %>
-
-      <div>
-        <% @profiles.each do |profile| %>
-          <div>
-            Role: <%= profile.role %><br/>
-            Phone: <%= profile.phone %><br/>
-            Availability: <%= profile.availability %><br/>
-
-            <%= link_to "Edit", edit_profile_path(profile.id) %>
-            <%= link_to "Remove", profile_path(profile.id), method: :delete, data: { confirm: 'Are you sure want to remove this profile?' } %>
-          </div>
-        <% end %>
+<section class="section">
+  <div class="section-header">
+    <h1>Dashboard</h1>
+  </div>
+  <% if user_signed_in? %> 
+    <div class="card-wrapper">
+      <div class="card">
+        <div class="card-body">
+          <h4>Total Profile: <%= @profiles.count %></h4>
+        </div>
       </div>
 
-      <p>Total: <%= @profiles.count %></p>
+      <div class="card">
+        <div class="card-body">
+          <h4>Online: <%= @online_profiles.count %></h4>
+        </div>
+      </div>
     </div>
-  </div>
-	<%= link_to "Edit Account", edit_user_registration_path %>
-
-  <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-<% else %>
-  <%= link_to "Sign in", new_user_session_path %>
-
-  <%= link_to "Sign up", new_user_registration_path %> 
-<% end %>
+  <% end %>
+</section>

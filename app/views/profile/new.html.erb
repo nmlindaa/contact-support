@@ -1,6 +1,7 @@
-<h2>New Profile</h2>
-<h3><%= current_user.name %></h3>
-<p><% notice %></p>
-<%= render 'form', url: profile_index_path, method: :post %>
-
-<%= link_to "Back to Home", root_path %>
+<section class="section">
+  <div class="section-header">
+    <h1>Create New Profile</h1>
+  </div>
+  <p><% notice %></p>
+  <%= render 'form', url: profile_index_path, method: :post %>
+</section>

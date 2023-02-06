@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_01_13_071547) do
   create_table "profiles", force: :cascade do |t|
+    t.string "name"
     t.string "role"
     t.string "phone"
     t.string "availability"
