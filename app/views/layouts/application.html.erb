@@ -16,7 +16,9 @@
   <body>
     <div id="app">
       <div class="main-wrapper main-wrapper-1">
-        <% if current_user.present? %>
+        <% if request.path == '/demo' %>
+          <%= yield %>
+        <% elsif current_user.present? %>
           <%= render 'layouts/navigation' %>
           <div class="main-content">
             <%= yield %>

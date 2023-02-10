@@ -1,8 +1,9 @@
 <div class="navbar-bg"></div>
 <nav class="navbar navbar-expand-lg main-navbar">
   <div class="navbar-custom">
+    <figure class="avatar mr-2 avatar-sm bg-info text-white" data-initial="<%= current_user.name.split(' ').collect { |s| s[0] }.join('') %>"></figure>
     <%= link_to "Hi, #{current_user.name}", edit_user_registration_path, class: 'nav-link-custom' %>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link-custom btn btn-light' %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'nav-link-custom btn btn-dark' %>
   </div>
   <div class="main-sidebar"> 
     <!-- sidebar wrapper -->

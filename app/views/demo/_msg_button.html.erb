@@ -1,0 +1,112 @@
+<div class="demo">
+  <button class="btn btn-primary btn-demo" onClick="showPopup()">
+  <i class="fa-brands fa-whatsapp"></i>
+  </button>
+  <div class="popup" id="popup-demo" style="display: none;">
+  <div class="popup-header">
+    <div>Who's Online?</div>
+    <div class="btn-close" onClick="hidePopup()">
+      <i class="fas fa-close"></i>
+    </div>
+  </div>
+  <div class="popup-body" id="profile-list">
+  </div>
+  </div>
+</div>
+
+<style>
+  .demo {
+    position: relative;
+  }
+  .popup {
+    background-color: #fff;
+    min-width: 250px;
+    min-height: 120px;
+    position: absolute;
+    bottom: 48px;
+    right: 288px;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 2px 2px 15px 2px rgb(0 0 0 / 17%);
+    margin-bottom: 24px;
+  }
+  .popup-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 16px;
+  }
+  .profile {
+    display: flex;
+    column-gap: 8px;
+    cursor: pointer;
+    margin-bottom: 8px;
+  }
+  .profile-body {
+    text-align: left;
+  }
+  .btn-close {
+    cursor: pointer;
+  }
+  .btn-demo {
+    width: 52px;
+    height: 52px;
+    border-radius: 50% !important;
+    font-size: 24px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+  }
+  .avatar {
+    background: #6777ef;
+    border-radius: 50%;
+    color: #e3eaef;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0;
+    position: relative;
+    vertical-align: middle;
+    line-height: 1.28;
+    height: 45px;
+    width: 45px;
+  }
+  .text-white {
+    color: #fff !important;
+  }
+  .status {
+    color: #63ed7a;
+    font-size: 14px;
+  }
+</style>
+
+<script type="text/javascript">
+  fetch('http://localhost:3000/demo/3')
+   .then(resp => resp.json())
+   .then(json => {
+    const data = json.profiles
+    let profile;
+    for(var i in data)
+      profile = data[i]
+       var item = document.createElement('div');
+        item.innerHTML =
+          '<a class="profile" href="https://wa.me/' + profile.phone + '"><figure class="avatar text-white" data-initial="' + profile.name.split(' ').map((v) => v[0]).join('').toUpperCase() + '"></figure>' +
+          '<div class="profile-body"><div>' + profile.name + '</div>' +
+          '<div class="status"><i class="fas fa-circle"></i> ' + profile.availability + '</div></div></a>';
+        document.getElementById("profile-list").appendChild(item);
+    }
+  )
+
+  function showPopup() {
+    var popup = document.getElementById('popup-demo')
+    console.log(popup)
+    popup.style.display = 'block'
+  }
+  function hidePopup() {
+    var popup = document.getElementById('popup-demo')
+    console.log(popup)
+    popup.style.display = 'none'
+  }
+</script>

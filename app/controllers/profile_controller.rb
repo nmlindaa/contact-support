@@ -1,4 +1,5 @@
 class ProfileController < ApplicationController
+  before_action -> { authenticate_user! }
   before_action :get_profile, except: [:new, :create, :index]
 
   def index

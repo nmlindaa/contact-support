@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :profile, except: [:show]
+
+  get 'demo' => 'demo#show'
+  get 'demo/:user_id' => 'demo#get_profiles'
 end

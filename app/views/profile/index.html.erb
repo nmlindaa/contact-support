@@ -19,7 +19,10 @@
           <tbody>
             <% @profiles.each do |profile| %>
               <tr>
-                <td><%= profile.name %></td>
+                <td>
+                  <figure class="avatar avatar-sm text-white" data-initial="<%= profile.name.split(' ').collect { |s| s[0] }.join('') %>"></figure>
+                  <%= profile.name %>
+                </td>
                 <td><%= profile.role %></td>
                 <td><%= profile.phone %></td>
                 <td>
